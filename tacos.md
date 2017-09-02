@@ -6,4 +6,6 @@ permalink: /tacos/
 
 ### Tacos
 
-There really should be more content here, but there isn't.
+Here's a gif of a taco dancing.
+
+<img src="{{ site.baseurl }}/images/tenor.gif" alt="Dance, my spicy dude." style="width: 400px;"/>
