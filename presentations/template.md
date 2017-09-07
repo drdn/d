@@ -1,9 +1,9 @@
-title: Basic Example
-author:
-  name: Jordan Scales
-  twitter: jdan
-  url: http://jordanscales.com
-output: basic.html
+title: (Re)Configuring Data Services for the Campus Community
+author: 
+  name: David Durden
+  email: durden@umd.edu 
+  url: http://drdn.github.io/d
+output: intro-pres.html
 controls: true
 
 --
