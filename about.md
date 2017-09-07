@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+This is an about me page. It features things about me. 
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Librarian, guitarist, dungeon master.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[durden@umd.edu](mailto:durden@umd.edu)
