@@ -4,6 +4,7 @@ author:
   email: durden@umd.edu 
   url: http://drdn.github.io/d
 output: intro-pres.html
+theme: select/cleaver-select-theme
 controls: true
 
 --

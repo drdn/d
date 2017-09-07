@@ -3,7 +3,8 @@ author:
   name: David Durden
   email: durden@umd.edu 
   url: http://drdn.github.io/d
-output: intro-pres.html
+output: temp.html
+theme: jdan/cleaver-retro
 controls: true
 
 --
