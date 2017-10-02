@@ -1,9 +1,9 @@
-title: (Re)Configuring Data Services for the Campus Community
+title: What's A Data Librarian?
 author: 
   name: David Durden
   email: durden@umd.edu 
   url: http://drdn.github.io/d
-output: temp.html
+output: 20171003-lbsc602.html
 theme: jdan/cleaver-retro
 controls: true
 
