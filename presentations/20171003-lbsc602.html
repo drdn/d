@@ -5,372 +5,255 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <title>What&#39;s a Data Librarian?</title>
   <style type="text/css">
-    /* Color Palette Based on Monokai
-
-white       : #fafafa
-light grey  : #efefef
-grey        : #75715e
-dark grey   : #272822
-black       : #191919
-
-light blue  : #66d9ef
-blue        : #1db4d0
-lavender    : #bf79db
-magenta     : #f92672
-light green : #a6e22e
-*/
-
-@import url(https://fonts.googleapis.com/css?family=Hind:400,500,600,700,300);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
-@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
-
-/* Theme Styles */
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
+    body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #222;
   font-size: 100%;
-  color: #191919;
-  background-color: #000;
 }
 
-/* Custom Slide Styles */
-#slide-1 {
-  color: #fafafa;
-  background: #222;
-  background-size: cover;
-}
-#slide-1::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: " ";
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  background: url('background-image.jpg') center center no-repeat;
-  background-size: cover;
-}
-
-#slide-1 h1 {
-  text-shadow: 1px 2px 4px #191919;
-}
-
-#slide-1 p {
-  text-shadow: 1px 1px 1px #191919;
-}
-
-.center {
-  text-align: center;
-}
-
-img.badge {
-  height: 128px;
-  width: 128px !important;
-  border-radius: 50% !important;
-}
-
-
-/* The following is needed for the ESC overview slide selection */
-.slides {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.slides.active .slide:not(.hidden) {
-  border: 22px solid red;
-}
-
-.slide-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9;
-  cursor: pointer;
-  display: none;
-}
-
-.slides.active .slide:hover .slide-overlay::before {
-  content: '▶';
-  text-align: center;
-  line-height: 300px;
-  font-size: 200px;
-  color: #fff;
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-.slides.active .slide:hover .slide-overlay{
-  display: block;
-  background: rgba(0,0,0,0.5);
-}
-.slide-wrapper {
-  margin: 7px;
-  transition: all 250ms;
-}
-
-/* Presentation Styles */
 .slide {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 100px;
-  z-index: 1;
-  overflow: hidden;
-  box-sizing: border-box;
-  background-color: #FFF;
-}
-
-.slide::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: " ";
-  width: 100%;
-  height: 100%;
-  opacity: 0.4;
-  background: url('clean-white-polygon-backgrounds-7.jpg') center center no-repeat;
-  background-size: cover;
-  z-index: 1;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  background-color: #f7f7f7;
 }
 
 .slide-content {
-  position: relative;
-  z-index: 2;
-  opacity: 1;
-  max-width: 800px;
-  max-height: 600px;
-  margin: 80px auto 0 auto;
-  padding: 0;
-  font-size: 200%;
-  font-weight: 200;
-  line-height: 1.375;
+  width: 800px;
+  height: 600px;
   overflow: hidden;
-}
+  margin: 80px auto 0 auto;
+  padding: 30px;
 
-.slide-content img {
-  width: 100%;
-  border-radius: 3px;
+  font-weight: 200;
+  font-size: 200%;
+  line-height: 1.375;
 }
 
 .controls {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  z-index: 3;
+  bottom: 20px;
+  left: 20px;
 }
 
-.overview {
-  display: inline-block;
-  float: left;
-  color: #C7C7C7;
-  margin-right: 15px;
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 30px;
-  cursor: pointer;
-}
-.overview:hover {
-  color: #1DB4D0;
-}
 .arrow {
+  width: 0; height: 0;
+  border: 30px solid #333;
   float: left;
-  height: 0;
-  width: 0;
-  margin-right: 15px;
-  border: 15px solid #C7C7C7;
+  margin-right: 30px;
+
   -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .prev {
   border-top-color: transparent;
-  border-right-width: 25px;
   border-bottom-color: transparent;
   border-left-color: transparent;
+
   border-left-width: 0;
+  border-right-width: 50px;
 }
 
 .next {
   border-top-color: transparent;
-  border-right-color: transparent;
-  border-right-width: 0;
   border-bottom-color: transparent;
-  border-left-width: 25px;
+  border-right-color: transparent;
+
+  border-left-width: 50px;
+  border-right-width: 0;
 }
 
 .prev:hover {
-  border-right-color: #1DB4D0;
+  border-right-color: #888;
   cursor: pointer;
 }
 
 .next:hover {
-  border-left-color: #1DB4D0;
+  border-left-color: #888;
   cursor: pointer;
 }
 
-h1,
-h2,
-h3 {
-  font-family: 'Hind', sans-serif;
-  font-weight: 500;
-}
-
 h1 {
-  margin: 170px 0 0;
   font-size: 300%;
-  text-align: center;
   line-height: 1.2;
+  text-align: center;
+  margin: 170px 0 0;
 }
 
 h2 {
-  margin: 5px 0;
   font-size: 100%;
-  font-weight: 200;
-  text-align: center;
   line-height: 1.2;
+  margin: 5px 0;
+  text-align: center;
+  font-weight: 200;
 }
 
 h3 {
-  margin: 0;
-  padding-bottom: 15px;
   font-size: 140%;
   line-height: 1.2;
-  border-bottom: 1px ridge #191919;
+  border-bottom: 1px solid #aaa;
+  margin: 0;
+  padding-bottom: 15px;
 }
 
 ul {
+  padding: 20px 0 0 60px;
   font-weight: 200;
   line-height: 1.375;
-  padding: 20px 0 0 60px;
-}
-
-blockquote {
-  padding-left: 20px;
-  margin-left: 0;
-  background: #efefef;
-  border-left: 5px solid #272822;
-  border-radius: 0 3px 3px 0;
-}
-
-blockquote p {
-  padding: .5em;
-  color: #272822;
-}
-
-.left {
-  float: left;
-  width: 48%;
-}
-
-.right {
-  float: right;
-  width: 48%;
 }
 
 .author h1 {
-  margin-bottom: 30px;
   font-size: 170%;
   font-weight: 200;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .author h3 {
-  font-size: 95%;
   font-weight: 100;
   text-align: center;
+  font-size: 95%;
   border: none;
-}
-
-.author h3.twitter::before {
-  content: 'Twitter: ';
-}
-
-.author h3.github::before {
-  content: 'Github: ';
-}
-
-.author h3.email::before {
-  content: 'Email: ';
-}
-
-.author h3.url::before {
-  content: 'Web: ';
 }
 
 a {
   text-decoration: none;
-  color: #1db4d0;
+  color: #44a4dd;
 }
 
 a:hover {
-  color: #1db4d0;
-  border-bottom: 1px solid #1db4d0;
-}
-
-hr {
-  border: 1px solid #272822;
+  color: #66b5ff;
 }
 
 pre {
-  font-size: 75%;
+  font-size: 60%;
   line-height: 1.3;
-}
-
-table td,
-table th {
-  padding-right: 3em;
-  text-align: left;
 }
 
 .progress {
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
+  top: 0; left: 0; right: 0;
   height: 3px;
-  z-index: 2;
+  z-index: 1;
 }
 
 .progress-bar {
+  width: 0%;
   height: 3px;
-  width: 0;
-  background-color: #1DB4D0;
-  -webkit-transition: width .15s ease-out;
-     -moz-transition: width .15s ease-out;
-       -o-transition: width .15s ease-out;
-          transition: width .15s ease-out;
+  background-color: #b4b4b4;
+
+  -webkit-transition: width 0.05s ease-out;
+  -moz-transition: width 0.05s ease-out;
+  -o-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
 }
 
 .hidden {
   display: none;
 }
 
-/* Code Highlighting */
-code {
-  padding: .1em .35em;
-  font-family: 'Inconsolata';
-  background-color: #fafafa;
-  border-radius: 3px;
+@media (max-width: 850px) {
+
+  body {
+    font-size: 70%;
+  }
+
+  .slide-content {
+    width: auto;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h1 {
+    margin-top: 120px;
+  }
+
+  .prev, .prev:hover {
+    border-right-color: rgba(135, 135, 135, 0.5);
+  }
+
+  .next, .next:hover {
+    border-left-color: rgba(135, 135, 135, 0.5);
+  }
 }
 
-pre code {
-  display: block;
-  padding: .5em;
-  font-family: 'Inconsolata';
-  font-weight: 400;
-  overflow-y: hidden;
-  background: rgba(255, 255, 255, 0.7);
+@media (max-width: 480px) {
+  body {
+    font-size: 50%;
+    overflow: hidden;
+  }
+
+  .slide-content {
+    padding: 10px;
+    margin-top: 10px;
+    height: 340px;
+  }
+
+  h1 {
+    margin-top: 50px;
+  }
+
+  ul {
+    padding-left: 25px;
+  }
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  @page {
+    size: letter;
+  }
+
+  .hidden {
+    display: inline;
+  }
+
+  html {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  body {
+    margin: 0 auto !important;
+    border: 0;
+    padding: 0;
+    float: none !important;
+    overflow: visible;
+    background: none !important;
+    font-size: 52%;
+  }
+
+  .progress, .controls {
+    display: none;
+  }
+
+  .slide {
+    position: static;
+  }
+
+  .slide-content {
+    border: 1px solid #222;
+    margin-top: 0;
+    margin-bottom: 40px;
+    height: 3.5in;
+    overflow: visible;
+  }
+
+  .slide:nth-child(even) {
+    /* 2 slides per page */
+    page-break-before: always;
+  }
 }
 
 /*
@@ -378,27 +261,7 @@ pre code {
 github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
-code.lang-bash-blank{
-  background: #000;
-  color: #fff!important;
-}
-code.lang-bash-blank-small{
-  background: #000;
-  color: #fff!important;
-  font-size: 0.45em;
-}
 
-kbd {
-  display: inline-block;
-  padding: 3px 5px;
-  color: #555;
-  vertical-align: middle;
-  background-color: #fcfcfc;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
-  border-radius: 6px;
-  box-shadow: inset 0 -4px 0 #bbb;
-}
 .hljs {
   display: block;
   overflow-x: auto;
@@ -493,116 +356,6 @@ kbd {
   font-weight: bold;
 }
 
-/* Responsiveness */
-@media (max-width: 850px) {
-  body {
-    font-size: 70%;
-  }
-
-  .slide {
-    padding: 50px;
-  }
-
-  .slide-content {
-    width: auto;
-  }
-
-  img {
-    width: 100%;
-    border-radius: 3px;
-  }
-
-  h1 {
-    margin-top: 120px;
-  }
-
-  .prev,
-  .prev:hover {
-    border-right-color: rgba(135, 135, 135, .5);
-  }
-
-  .next,
-  .next:hover {
-    border-left-color: rgba(135, 135, 135, .5);
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    overflow: hidden;
-    font-size: 50%;
-  }
-
-  .slide {
-    padding: 10px;
-  }
-  .slide-content {
-    height: 340px;
-    padding: 10px;
-    margin-top: 10px;
-  }
-
-  h1 {
-    margin-top: 50px;
-  }
-
-  ul {
-    padding-left: 25px;
-  }
-}
-
-@media print {
-  * {
-    -webkit-print-color-adjust: exact;
-  }
-
-  @page {
-    size: letter;
-  }
-
-  .hidden {
-    display: inline;
-  }
-
-  html {
-    height: 100%;
-    width: 100%;
-    overflow: visible;
-  }
-
-  body {
-    float: none !important;
-    padding: 0;
-    margin: 0 auto !important;
-    overflow: visible;
-    font-size: 52%;
-    background: none !important;
-    border: 0;
-  }
-
-  .progress,
-  .controls {
-    display: none;
-  }
-
-  .slide {
-    position: static;
-  }
-
-  .slide-content {
-    margin-top: 0;
-    margin-bottom: 40px;
-    height: 3.5in;
-    overflow: visible;
-    border: 1px solid #222;
-
-  }
-
-  .slide:nth-child(even) {
-    /* 2 slides per page */
-    page-break-before: always;
-  }
-}
 
   </style>
 </head>
@@ -611,27 +364,18 @@ kbd {
     <div class="progress-bar"></div>
   </div>
 
-<div class="slides">
-    <div class="slide-wrapper">
-      <div class="slide" id="slide-1">
-        <div data-id="1" class="slide-overlay"></div>
-        <section class="slide-content"><h1 id="what-s-a-data-librarian-">What&#39;s a Data Librarian?</h1>
+  <div class="slide" id="slide-1">
+    <section class="slide-content"><h1 id="what-s-a-data-librarian-">What&#39;s a Data Librarian?</h1>
 </section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-2">
-        <div data-id="2" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="a-short-definition">A short definition</h3>
+  </div>
+  <div class="slide hidden" id="slide-2">
+    <section class="slide-content"><h3 id="a-short-definition">A short definition</h3>
 <p>A data librarian works at the intersection of research data management, the research lifecycle, and digital curation.</p>
 <p>&quot;Databrarians&quot; are typically found in academic or research libraries.</p>
 </section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-3">
-        <div data-id="3" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="key-areas-of-work">Key areas of work</h3>
+  </div>
+  <div class="slide hidden" id="slide-3">
+    <section class="slide-content"><h3 id="key-areas-of-work">Key areas of work</h3>
 <ul>
 <li>Research Data Management</li>
 <li>Data Reference and Instruction</li>
@@ -639,20 +383,15 @@ kbd {
 <li>Library Research/Data Services</li>
 </ul>
 </section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-4">
-        <div data-id="4" class="slide-overlay"></div>
-        <section class="slide-content"><h2 id="the-dataone-lifecycle">The DataONE lifecycle</h2>
-<p><img src="https://drdn.github.io/d/assets/fig1-1.png | width=250" alt="DataONE"></p>
-</section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-5">
-        <div data-id="5" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="stuff-that-i-do">Stuff that I do</h3>
+  </div>
+  <div class="slide hidden" id="slide-4">
+    <section class="slide-content"><h2 id="the-dataone-lifecycle">The DataONE lifecycle</h2>
+<p align="center">
+    <img src="https://drdn.github.io/d/assets/fig1-1.png">
+</p></section>
+  </div>
+  <div class="slide hidden" id="slide-5">
+    <section class="slide-content"><h3 id="stuff-that-i-do">Stuff that I do</h3>
 <ul>
 <li>Data management planning</li>
 <li>Database evaluation</li>
@@ -664,12 +403,9 @@ kbd {
 <li>Digital archiving</li>
 </ul>
 </section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-6">
-        <div data-id="6" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="so-dave-how-d-you-become-a-data-librarian-">So, Dave... How&#39;d you become a Data Librarian?</h3>
+  </div>
+  <div class="slide hidden" id="slide-6">
+    <section class="slide-content"><h3 id="so-dave-how-d-you-become-a-data-librarian-">So, Dave... How&#39;d you become a Data Librarian?</h3>
 <p><strong><em>Serendipity.</em></strong></p>
 <ol>
 <li>Guitarist</li>
@@ -678,12 +414,9 @@ kbd {
 <li>Data Services Librarian</li>
 </ol>
 </section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-7">
-        <div data-id="7" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="but-seriously-how-do-i-get-started-">But seriously, how do I get started?</h3>
+  </div>
+  <div class="slide hidden" id="slide-7">
+    <section class="slide-content"><h3 id="but-seriously-how-do-i-get-started-">But seriously, how do I get started?</h3>
 <ul>
 <li>Practical, hands-on experience is invaluable<ul>
 <li>Look for internships/jobs related to digital preservation/curation</li>
@@ -694,12 +427,9 @@ kbd {
 <li>Get familiar with the Research Data Lifecycle</li>
 </ul>
 </section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-8">
-        <div data-id="8" class="slide-overlay"></div>
-        <section class="slide-content"><h3 id="more-serious">More serious</h3>
+  </div>
+  <div class="slide hidden" id="slide-8">
+    <section class="slide-content"><h3 id="more-serious">More serious</h3>
 <ul>
 <li>Unix utilities</li>
 <li>Python, R</li>
@@ -712,28 +442,19 @@ kbd {
 </li>
 </ul>
 </section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-9">
-        <div data-id="9" class="slide-overlay"></div>
-        <section class="slide-content"><h2 id="some-handy-texts">Some handy texts</h2>
+  </div>
+  <div class="slide hidden" id="slide-9">
+    <section class="slide-content"><h2 id="some-handy-texts">Some handy texts</h2>
 <p>Johnston, Lisa R. <em>Curating Research Data.</em> 2 vols. Chicago: ACRL, 2017.</p>
 <p>Kellam, Lynda and Kristi Thompson, eds. <em>Databrarianship: The Academic Data Librarian in Theory and Practice.</em> Chicago: ACRL, 2016.</p>
 <p>Ray, Joyce M., ed. <em>Research Data Management: Practical Strategies for Information Professionals.</em> West Lafayette: Charelston Insight, 2014.</p>
 </section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden" id="slide-10">
-        <div data-id="10" class="slide-overlay"></div>
-        <section class="slide-content"></section>
-      </div>
-    </div>
-    <div class="slide-wrapper">
-      <div class="slide hidden author-slide" id="slide-11">
-        <div data-id="11" class="slide-overlay"></div>
-        <section class="slide-content"><div class="author">
+  </div>
+  <div class="slide hidden" id="slide-10">
+    <section class="slide-content"></section>
+  </div>
+  <div class="slide hidden author-slide" id="slide-11">
+    <section class="slide-content"><div class="author">
   <h1 class="name">David Durden</h1>
     <h3 class="url">
       <a href="https://lib.umd.edu/data">https://lib.umd.edu/data</a>
@@ -743,13 +464,10 @@ kbd {
     </h3>
 </div>
 </section>
-      </div>
-    </div>
-</div>
+  </div>
 
   <div class="controls">
     <div class="arrow prev"></div>
-    <div class="overview">☷</div>
     <div class="arrow next"></div>
   </div>
 
@@ -762,6 +480,7 @@ function currentPosition() {
   return parseInt(document.querySelector('.slide:not(.hidden)').id.slice(6));
 }
 
+
 /**
  * Navigates forward n pages
  * If n is negative, we will navigate in reverse
@@ -770,49 +489,32 @@ function navigate(n) {
   var position = currentPosition();
   var numSlides = document.getElementsByClassName('slide').length;
 
-  var $fragments = document.querySelectorAll('#slide-' + position + ' .fragment');
-  var fragmentsFinished = false;
-  if ($fragments.length) {
-    if (n > 0) {
-      var $f = document.querySelectorAll('#slide-' + position + ' .fragment.hidden');
-      if (!$f.length) fragmentsFinished = true;
-      else $f[0].classList.remove('hidden');
-    } else {
-      var $f = document.querySelectorAll('#slide-' + position + ' .fragment:not(.hidden)');
-      if (!$f.length) fragmentsFinished = true;
-      else $f[$f.length - 1].classList.add('hidden');
-    }
-  } else {
-    fragmentsFinished = true;
-  }
+  /* Positions are 1-indexed, so we need to add and subtract 1 */
+  var nextPosition = (position - 1 + n) % numSlides + 1;
 
-  if (fragmentsFinished) {
-    /* Positions are 1-indexed, so we need to add and subtract 1 */
-    var nextPosition = (position - 1 + n) % numSlides + 1;
+  /* Normalize nextPosition in-case of a negative modulo result */
+  nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
 
-    /* Normalize nextPosition in-case of a negative modulo result */
-    nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
+  document.getElementById('slide-' + position).classList.add('hidden');
+  document.getElementById('slide-' + nextPosition).classList.remove('hidden');
 
-    document.getElementById('slide-' + position).classList.add('hidden');
-    document.getElementById('slide-' + nextPosition).classList.remove('hidden');
-
-    updateProgress();
-    updateURL();
-    updateTabIndex();
-  }
-
+  updateProgress();
+  updateURL();
+  updateTabIndex();
 }
+
 
 /**
  * Updates the current URL to include a hashtag of the current page number.
  */
 function updateURL() {
   try {
-    window.history.replaceState({}, null, '#' + currentPosition());
+    window.history.replaceState({} , null, '#' + currentPosition());
   } catch (e) {
     window.location.hash = currentPosition();
   }
 }
+
 
 /**
  * Sets the progress indicator.
@@ -827,6 +529,7 @@ function updateProgress() {
     progressBar.style.width = percent.toString() + '%';
   }
 }
+
 
 /**
  * Removes tabindex property from all links on the current slide, sets
@@ -853,9 +556,9 @@ function updateTabIndex() {
  */
 function isFullScreen() {
   return document.fullscreenElement ||
-    document.mozFullScreenElement ||
-    document.webkitFullscreenElement ||
-    document.msFullscreenElement;
+         document.mozFullScreenElement ||
+         document.webkitFullscreenElement ||
+         document.msFullscreenElement;
 }
 
 /**
@@ -868,21 +571,21 @@ function toggleFullScreen() {
   var doc = document;
 
   docElem.requestFullscreen =
-    docElem.requestFullscreen ||
-    docElem.msRequestFullscreen ||
-    docElem.mozRequestFullScreen ||
-    docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
+      docElem.requestFullscreen ||
+      docElem.msRequestFullscreen ||
+      docElem.mozRequestFullScreen ||
+      docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
 
   doc.exitFullscreen =
-    doc.exitFullscreen ||
-    doc.msExitFullscreen ||
-    doc.mozCancelFullScreen ||
-    doc.webkitExitFullscreen;
+      doc.exitFullscreen ||
+      doc.msExitFullscreen ||
+      doc.mozCancelFullScreen ||
+      doc.webkitExitFullscreen;
 
   isFullScreen() ? doc.exitFullscreen() : docElem.requestFullscreen();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Update the tabindex to prevent weird slide transitioning
   updateTabIndex();
 
@@ -892,8 +595,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navigate(parseInt(page) - 1);
   }
 
-  document.onkeydown = function(e) {
-    if(e.target.tagName.toLowerCase() === 'textarea') return;
+  document.onkeydown = function (e) {
     var kc = e.keyCode;
 
     // left, down, H, J, backspace, PgUp - BACK
@@ -905,65 +607,23 @@ document.addEventListener('DOMContentLoaded', function() {
       navigate(1);
     } else if (kc === 13) {
       toggleFullScreen();
-    } else if (kc === 27) {
-      toggleOverview();
     }
   };
 
   if (document.querySelector('.next') && document.querySelector('.prev')) {
-    document.querySelector('.next').onclick = function(e) {
+    document.querySelector('.next').onclick = function (e) {
       e.preventDefault();
       navigate(1);
     };
 
-    document.querySelector('.prev').onclick = function(e) {
+    document.querySelector('.prev').onclick = function (e) {
       e.preventDefault();
       navigate(-1);
     };
   }
-  if (document.querySelector('.overview')) {
-    document.querySelector('.overview').onclick = function(e) {
-      toggleOverview();
-    }
-  }
-  var $overlays = document.querySelectorAll('.slide-overlay');
-  [].forEach.call($overlays, function($overlay) {
-    $overlay.onclick = function(event) {
-      navigate(parseInt(event.target.dataset.id) - currentPosition());
-      toggleOverview();
-    }
-  });
-
-  var $fragments = document.querySelectorAll('.fragment');
-  [].forEach.call($fragments, function($fragment) {
-    $fragment.classList.add('hidden');
-  });
-
 });
 
-function toggleOverview() {
-  if (window.$style !== undefined) {
-    window.$style.remove();
-    delete window.$style;
-    document.querySelector('.slides').classList.remove('active');
-  } else {
-    var $slides = document.querySelector('.slides');
-    $slides.classList.add('active');
-    var slidesList = document.querySelectorAll('.slide-wrapper');
 
-    var w = window,
-      d = document,
-      e = d.documentElement,
-      g = d.getElementsByTagName('body')[0],
-      x = w.innerWidth || e.clientWidth || g.clientWidth,
-      y = w.innerHeight || e.clientHeight || g.clientHeight;
-
-    window.$style = document.createElement('style');
-    window.$style.innerHTML = '.slide-wrapper {width: ' + (x * 0.25) + 'px; height: ' + (y * 0.25) + 'px; } body .slide {width: ' + x + 'px; height: ' + y + 'px; position: relative; transform: scale(0.25,0.25); transform-origin: 0 0; } .slide.hidden{display: block; }';
-
-    document.getElementsByTagName('head')[0].appendChild(window.$style);
-  }
-}
   </script>
 </body>
 </html>
