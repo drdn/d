@@ -4,11 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This is an about me page. It features things about me. 
+### Some words that describe me
 
-### More Information
-
-Librarian, guitarist, dungeon master.
+* Librarian
+* Guitarist
+* Dungeon Master
+* Sci-Fi Nerd
 
 ### Contact me
 
